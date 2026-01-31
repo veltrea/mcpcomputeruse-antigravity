@@ -1,4 +1,4 @@
-﻿# MCPComputerUse (Enhanced Fork for Windows)
+﻿# mcpcomputeruse-antigravity (Enhanced Fork for Windows)
 
 > [!NOTE]
 > This repository is a fork of the original [kblood/MCPComputerUse](https://github.com/kblood/MCPComputerUse).
