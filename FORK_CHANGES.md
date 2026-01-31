@@ -1,39 +1,39 @@
 # Fork Modification Record: mcpcomputeruse-antigravity
 
-本ドキュメントでは、オリジナル版 ([kblood/MCPComputerUse](https://github.com/kblood/MCPComputerUse)) から本フォーク版への変更点および技術的な修正内容を記録します。
+This document records the changes and technical improvements made to this fork from the original repository ([kblood/MCPComputerUse](https://github.com/kblood/MCPComputerUse)).
 
-## 1. 修正の目的
-本フォークは、Windows 環境における MCP サーバーの動作を、Google Antigravity 等の AI エージェントから運用する際に最適化することを目的としています。オリジナル版で確認された SDK の不整合、命名規則の違反、および環境依存のコードを修正し、高い信頼性と互換性を確保しました。
+## 1. Objectives
+The primary goal of this fork is to optimize the Windows-based MCP server for use with autonomous AI agents such as Google Antigravity. We addressed SDK inconsistencies, naming convention violations, and environment-dependent code found in the original implementation to ensure high reliability and broad compatibility.
 
-## 2. 開発プロセス
-本プロジェクトの修正・安定化は、AI エージェント（Google Antigravity）と人間（リード開発者）によるペアプログラミングを通じて実施されました。
-- **人間による役割**: 課題の特定、修正方針の決定、および最終的な技術品質の担保。
-- **AI による役割**: ソースコード全体のリファクタリング、SDK 移行、命名規則の適用、および検証。
+## 2. Development Process
+The refactoring and stabilization of this project were achieved through a collaborative effort between a human lead developer and an AI coding assistant.
+- **Human Developer**: Identified core issues, defined architectural improvements, and ensured overall technical quality.
+- **AI Assistant**: Performed codebase-wide refactoring, SDK migration, standardization of naming conventions, and verification.
 
-## 3. 主要な技術的変更点
+## 3. Key Technical Changes
 
-### 3.1. MCP SDK の正規化
-- **問題**: プロジェクト内に独自のスタブ定義が残存しており、公式 SDK との定義競合（CS0436 警告）が発生していた。
-- **修正**: `ModelContextProtocol.Core` SDK への完全移行を実施。古いスタブ属性を削除し、公式の `[McpServerTool]` 属性に統一。
+### 3.1. Normalization of MCP SDK
+- **Issue**: Legacy stub definitions within the project caused conflicts with the official SDK (resulting in CS0436 warnings).
+- **Fix**: Fully migrated to the `ModelContextProtocol.Core` SDK. Removed obsolete stub attributes and standardized on official `[McpServerTool]` attributes.
 
-### 3.2. ツール命名規則の修正
-- **問題**: 一部のツール名にコロン（`:`）が含まれており、厳格な命名規則を要求する AI クライアントでロードエラーが発生していた。
-- **修正**: すべてのツール名からコロンを除去し、アンダースコア（`_`）へ置換。これにより、`^[a-zA-Z0-9_-]+$` の形式に準拠。
+### 3.2. Standardization of Tool Naming
+- **Issue**: Several tool names contained colons (`:`), causing loading failures with MCP clients that enforce strict naming conventions.
+- **Fix**: Replaced all colons with underscores (`_`) to ensure compliance with the `^[a-zA-Z0-9_-]+$` pattern.
 
-### 3.3. パス依存の解消
-- **問題**: バッチファイルおよびコード内で開発用ディレクトリの絶対パスがハードコードされていた。
-- **修正**: パス設定を相対化、もしくは環境変数を利用する形式に改め、任意のディレクトリ構成での運用を可能にした。
+### 3.3. Removal of Path Dependencies
+- **Issue**: Absolute paths to local development directories were hardcoded in scripts and source code.
+- **Fix**: Refactored path handling to be relative or environment-variable based, allowing for seamless execution across different systems.
 
-## 4. 削除された項目
-クリーンなサーバー構成を維持するため、以下の項目をリポジトリから削除しました：
-- **旧来のスクリプト群**: `LAUNCH.bat`, `INSTALL.bat`, `CREATE_PACKAGE.bat` 等（Skyrim 用スクリプトの名残）。
-- **デバッグ用遺物**: `test_err.log`, `mcp-server.log` 等の実行時ログ。
-- **中間ドキュメント**: 開発フェーズでのみ使用された設計メモ。
+## 4. Removed Components
+To maintain a clean and focused repository, the following items were removed:
+- **Legacy Scripts**: `LAUNCH.bat`, `INSTALL.bat`, `CREATE_PACKAGE.bat` (remnants from previous specific use cases).
+- **Execution Logs**: `test_err.log`, `mcp-server.log`, etc.
+- **Intermediary Notes**: Design memos used only during the early development phase.
 
-## 5. 追加されたドキュメント
-- **[README.jp.md](README.jp.md)**: 日本語利用者向けの正式な技術ガイド。
-- **[FORK_CHANGES.md](FORK_CHANGES.md)**: 本変更履歴（本作）。
+## 5. Documentation Updates
+- **[README.jp.md](README.jp.md)**: Official technical guide for Japanese-speaking users.
+- **[FORK_CHANGES.md](FORK_CHANGES.md)**: This record of changes.
 
 ---
-**技術担当**: veltrea (Master) & Google Antigravity
-**最終更新日**: 2026-01-31
+**Technical Credits**: veltrea (Lead Developer) & Google Antigravity (AI Assistant)
+**Last Updated**: 2026-02-01
