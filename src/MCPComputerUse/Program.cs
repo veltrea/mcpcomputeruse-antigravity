@@ -31,9 +31,9 @@ public static class Program
             // Suppress console output to avoid interfering with the MCP protocol
             Console.SetOut(TextWriter.Null);
             
-            // Set up error logging to a file
-            var logFile = Path.Combine(Path.GetTempPath(), "mcpcomputeruse-log.txt");
-            using var errorWriter = new StreamWriter(logFile, true);
+            // Set up error logging to a file in the same directory for easier debugging
+            var logFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "mcp-server.log");
+            using var errorWriter = new StreamWriter(logFile, true) { AutoFlush = true };
             Console.SetError(errorWriter);
             
             Console.Error.WriteLine($"Starting MCP Computer Use server at {DateTime.Now}");

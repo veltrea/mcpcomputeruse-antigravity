@@ -361,3 +361,13 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Custom ignored for this project
+BLOG/
+source/
+mcp-server.log
+test_err.log
+tools_temp/
+publish/
+bin/
+obj/

@@ -24,7 +24,7 @@ public static class MacroAndUtilityTools
     /// <param name="commandsJson">JSON array of commands to execute</param>
     /// <param name="name">Optional macro name</param>
     /// <returns>A JSON string with the macro execution result.</returns>
-    [McpServerTool("computer-use:run_macro")]
+    [McpServerTool(Name = "run_macro")]
     [Description("Execute a sequence of automation commands")]
     public static string RunMacro(
         [Description("JSON array of commands to execute")] string commandsJson,
@@ -101,7 +101,7 @@ public static class MacroAndUtilityTools
     /// Gets server capabilities and status.
     /// </summary>
     /// <returns>A JSON string with server capabilities.</returns>
-    [McpServerTool("computer-use:get_server_capabilities")]
+    [McpServerTool(Name = "get_server_capabilities")]
     [Description("Get server capabilities and status")]
     public static string GetServerCapabilities()
     {
@@ -124,17 +124,17 @@ public static class MacroAndUtilityTools
                 },
                 tools = new[]
                 {
-                    "computer-use:take_screenshot",
-                    "computer-use:list_windows",
-                    "computer-use:get_active_window", 
-                    "computer-use:focus_window",
-                    "computer-use:mouse_click",
-                    "computer-use:mouse_move",
-                    "computer-use:type_text",
-                    "computer-use:press_key",
-                    "computer-use:scroll",
-                    "computer-use:run_macro",
-                    "computer-use:get_server_capabilities"
+                    "take_screenshot",
+                    "list_windows",
+                    "get_active_window", 
+                    "focus_window",
+                    "mouse_click",
+                    "mouse_move",
+                    "type_text",
+                    "press_key",
+                    "scroll",
+                    "run_macro",
+                    "get_server_capabilities"
                 },
                 features = new
                 {
@@ -178,7 +178,7 @@ public static class MacroAndUtilityTools
     /// </summary>
     /// <param name="thought">The thought or reasoning to process</param>
     /// <returns>A JSON string acknowledging the thought.</returns>
-    [McpServerTool("computer-use:think")]
+    [McpServerTool(Name = "think")]
     [Description("Provides a space for structured thinking during complex operations")]
     public static string Think(
         [Description("The thought or reasoning to process")] string thought)
