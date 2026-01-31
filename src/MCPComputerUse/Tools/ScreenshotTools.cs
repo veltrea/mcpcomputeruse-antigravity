@@ -28,7 +28,7 @@ public static class ScreenshotTools
     /// <param name="windowId">Window ID to screenshot</param>
     /// <param name="windowName">Window title to search for</param>
     /// <returns>A JSON string with the screenshot result.</returns>
-    [McpServerTool("computer-use:take_screenshot")]
+    [McpServerTool(Name = "take_screenshot")]
     [Description("Take a screenshot with flexible targeting options")]
     public static string TakeScreenshot(
         [Description("Optional filename (without extension)")] 

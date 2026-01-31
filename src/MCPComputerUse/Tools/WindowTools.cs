@@ -23,7 +23,7 @@ public static class WindowTools
     /// </summary>
     /// <param name="includeHidden">Include hidden windows</param>
     /// <returns>A JSON string with the window list.</returns>
-    [McpServerTool("computer-use:list_windows")]
+    [McpServerTool(Name = "list_windows")]
     [Description("List all visible windows")]
     public static string ListWindows(
         [Description("Include hidden windows")]
@@ -72,7 +72,7 @@ public static class WindowTools
     /// Gets currently active window info.
     /// </summary>
     /// <returns>A JSON string with the active window info.</returns>
-    [McpServerTool("computer-use:get_active_window")]
+    [McpServerTool(Name = "get_active_window")]
     [Description("Get currently active window info")]
     public static string GetActiveWindow()
     {
@@ -128,7 +128,7 @@ public static class WindowTools
     /// <param name="windowId">Window ID</param>
     /// <param name="windowName">Window title to search for</param>
     /// <returns>A JSON string with the focus result.</returns>
-    [McpServerTool("computer-use:focus_window")]
+    [McpServerTool(Name = "focus_window")]
     [Description("Focus a window by ID or name")]
     public static string FocusWindow(
         [Description("Window ID")]
